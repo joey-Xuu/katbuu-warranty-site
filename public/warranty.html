@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KATBUU Warranty Registration</title>
+    <meta
+      name="description"
+      content="Register your KATBUU aroma lamp to activate your 3-year limited warranty and free lifetime bulb replacement."
+    >
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <main class="page">
+        <header class="topbar">
+          <div class="brand-mark"><span>K</span> KATBUU</div>
+          <nav class="top-links" aria-label="Secondary">
+            <a href="/warranty-terms">Warranty Terms</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="mailto:katbuu007@outlook.com">Contact Support</a>
+          </nav>
+        </header>
+
+        <section class="hero">
+          <article class="panel">
+            <p class="eyebrow">Warm light. Reliable support.</p>
+            <h1 class="headline">Register once. Keep the calm going.</h1>
+            <p class="subcopy">
+              Activate your KATBUU aroma lamp coverage in under a minute. Registration
+              gives you a 3-year limited warranty for non-human-caused defects plus free
+              lifetime bulb replacement for normal household use.
+            </p>
+
+            <div class="benefit-grid">
+              <div class="benefit-card">
+                <strong>3-Year Limited Warranty</strong>
+                Covers manufacturing defects and non-human-caused product issues.
+              </div>
+              <div class="benefit-card">
+                <strong>Free Lifetime Bulb Replacement</strong>
+                Registered customers can request replacement bulbs for normal use.
+              </div>
+            </div>
+
+            <div class="ambient-scene" aria-hidden="true">
+              <div class="steam"></div>
+              <div class="lamp-glass"></div>
+              <div class="lamp-base"></div>
+              <div class="table-line"></div>
+            </div>
+
+            <div class="trust-row">
+              <div class="trust-pill">Amazon US and Amazon UK orders supported</div>
+              <div class="trust-pill">No review required for registration</div>
+            </div>
+          </article>
+
+          <aside class="panel">
+            <div class="form-header">
+              <p class="eyebrow">Activate coverage</p>
+              <h2>Register Your Warranty</h2>
+              <p>
+                Fill in your purchase details to activate coverage immediately after
+                submission.
+              </p>
+            </div>
+
+            <form class="form-grid" data-registration-form novalidate>
+              <div class="field">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" type="text" maxlength="80" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" maxlength="120" required>
+              </div>
+
+              <div class="field">
+                <label for="phoneNumber">Phone Number (Optional)</label>
+                <input id="phoneNumber" name="phoneNumber" type="tel" maxlength="30">
+              </div>
+
+              <div class="field">
+                <label for="amazonOrderId">Amazon Order ID</label>
+                <input
+                  id="amazonOrderId"
+                  name="amazonOrderId"
+                  type="text"
+                  maxlength="32"
+                  placeholder="112-1234567-1234567"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label for="marketplace">Marketplace</label>
+                <select id="marketplace" name="marketplace" required>
+                  <option value="">Select your marketplace</option>
+                  <option value="Amazon US">Amazon US</option>
+                  <option value="Amazon UK">Amazon UK</option>
+                </select>
+              </div>
+
+              <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off">
+
+              <div class="checkbox-list">
+                <div class="checkbox-row">
+                  <input id="acceptTerms" name="acceptTerms" type="checkbox" required>
+                  <label for="acceptTerms">
+                    I have read and agree to the <a href="/warranty-terms">Warranty Terms</a>.
+                  </label>
+                </div>
+                <div class="checkbox-row">
+                  <input id="acceptPrivacy" name="acceptPrivacy" type="checkbox" required>
+                  <label for="acceptPrivacy">
+                    I have read and agree to the <a href="/privacy-policy">Privacy Policy</a>.
+                  </label>
+                </div>
+              </div>
+
+              <div class="button-row">
+                <button class="primary-button" data-submit-button type="submit">
+                  Activate Warranty
+                </button>
+                <a class="secondary-button" href="/thank-you-card">View Thank-You Card</a>
+              </div>
+
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+
+            <p class="support-note">
+              Need help now? Email <a href="mailto:katbuu007@outlook.com">katbuu007@outlook.com</a>.
+            </p>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
