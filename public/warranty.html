@@ -23,63 +23,45 @@
         </header>
 
         <section class="hero">
-          <article class="panel">
-            <p class="eyebrow">Warm light. Reliable support.</p>
-            <h1 class="headline">Register once. Keep the calm going.</h1>
-            <p class="subcopy">
-              Activate your KATBUU aroma lamp coverage in under a minute. Registration
-              gives you a 3-year limited warranty for non-human-caused defects plus free
-              lifetime bulb replacement for normal household use.
+          <article class="panel hero-copy-panel">
+            <p class="eyebrow">Quick activation</p>
+            <h1 class="headline compact-headline">Activate in under 1 minute.</h1>
+            <p class="subcopy compact-subcopy">
+              Only your email address and Amazon order ID are needed to turn on your
+              KATBUU coverage.
             </p>
 
-            <div class="benefit-grid">
-              <div class="benefit-card">
-                <strong>3-Year Limited Warranty</strong>
-                Covers manufacturing defects and non-human-caused product issues.
-              </div>
-              <div class="benefit-card">
-                <strong>Free Lifetime Bulb Replacement</strong>
-                Registered customers can request replacement bulbs for normal use.
-              </div>
-            </div>
-
-            <div class="ambient-scene" aria-hidden="true">
-              <div class="steam"></div>
-              <div class="lamp-glass"></div>
-              <div class="lamp-base"></div>
-              <div class="table-line"></div>
-            </div>
-
-            <div class="trust-row">
-              <div class="trust-pill">Amazon US and Amazon UK orders supported</div>
-              <div class="trust-pill">No review required for registration</div>
+            <div class="trust-row compact-trust-row">
+              <div class="trust-pill">3-Year limited warranty</div>
+              <div class="trust-pill">Free lifetime bulb replacement</div>
             </div>
           </article>
 
-          <aside class="panel">
+          <aside class="panel hero-form-panel">
             <div class="form-header">
               <p class="eyebrow">Activate coverage</p>
               <h2>Register Your Warranty</h2>
               <p>
-                Fill in your purchase details to activate coverage immediately after
-                submission.
+                Only your email and Amazon order ID are required. Coverage becomes
+                active right after submission.
               </p>
+            </div>
+
+            <div class="form-benefit-strip" aria-label="Registration benefits">
+              <div>
+                <strong>3-Year Limited Warranty</strong>
+                <span>Coverage for non-human-caused product defects.</span>
+              </div>
+              <div>
+                <strong>Free Lifetime Bulb Replacement</strong>
+                <span>Replacement bulbs for registered customers.</span>
+              </div>
             </div>
 
             <form class="form-grid" data-registration-form novalidate>
               <div class="field">
-                <label for="fullName">Full Name</label>
-                <input id="fullName" name="fullName" type="text" maxlength="80" required>
-              </div>
-
-              <div class="field">
                 <label for="email">Email Address</label>
                 <input id="email" name="email" type="email" maxlength="120" required>
-              </div>
-
-              <div class="field">
-                <label for="phoneNumber">Phone Number (Optional)</label>
-                <input id="phoneNumber" name="phoneNumber" type="tel" maxlength="30">
               </div>
 
               <div class="field">
@@ -92,15 +74,6 @@
                   placeholder="112-1234567-1234567"
                   required
                 >
-              </div>
-
-              <div class="field">
-                <label for="marketplace">Marketplace</label>
-                <select id="marketplace" name="marketplace" required>
-                  <option value="">Select your marketplace</option>
-                  <option value="Amazon US">Amazon US</option>
-                  <option value="Amazon UK">Amazon UK</option>
-                </select>
               </div>
 
               <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off">
@@ -120,11 +93,12 @@
                 </div>
               </div>
 
-              <div class="button-row">
+              <p class="micro-note">For Amazon US and Amazon UK orders. No review is required.</p>
+
+              <div class="button-row single-action">
                 <button class="primary-button" data-submit-button type="submit">
                   Activate Warranty
                 </button>
-                <a class="secondary-button" href="/thank-you-card">View Thank-You Card</a>
               </div>
 
               <p class="form-status" data-form-status aria-live="polite"></p>

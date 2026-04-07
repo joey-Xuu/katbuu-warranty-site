@@ -137,8 +137,7 @@ async function handleRegistration(req, res) {
     const registrations = await readRegistrations();
     const existing = registrations.find(
       (registration) =>
-        registration.amazonOrderId === parsed.data.amazonOrderId &&
-        registration.marketplace === parsed.data.marketplace
+        registration.amazonOrderId === parsed.data.amazonOrderId
     );
 
     if (existing) {
@@ -150,11 +149,8 @@ async function handleRegistration(req, res) {
 
     const record = {
       id: crypto.randomUUID(),
-      fullName: parsed.data.fullName,
       email: parsed.data.email,
-      phoneNumber: parsed.data.phoneNumber,
       amazonOrderId: parsed.data.amazonOrderId,
-      marketplace: parsed.data.marketplace,
       registeredAt: new Date().toISOString(),
       status: "active",
       coverage: {
@@ -258,26 +254,17 @@ async function readJsonBody(req, res) {
 }
 
 function validateRegistration(payload) {
-  const fullName = sanitizeText(payload.fullName, 80);
   const email = sanitizeEmail(payload.email);
-  const phoneNumber = sanitizeText(payload.phoneNumber, 30);
   const amazonOrderId = sanitizeOrderId(payload.amazonOrderId);
-  const marketplace = sanitizeMarketplace(payload.marketplace);
   const acceptTerms = Boolean(payload.acceptTerms);
   const acceptPrivacy = Boolean(payload.acceptPrivacy);
   const honeypot = sanitizeText(payload.website, 120);
 
-  if (!fullName) {
-    return { ok: false, error: "Full name is required." };
-  }
   if (!email) {
     return { ok: false, error: "A valid email address is required." };
   }
   if (!amazonOrderId) {
     return { ok: false, error: "A valid Amazon order ID is required." };
-  }
-  if (!marketplace) {
-    return { ok: false, error: "Please select your marketplace." };
   }
   if (!acceptTerms || !acceptPrivacy) {
     return {
@@ -289,11 +276,8 @@ function validateRegistration(payload) {
   return {
     ok: true,
     data: {
-      fullName,
       email,
-      phoneNumber,
       amazonOrderId,
-      marketplace,
       honeypot
     }
   };
@@ -317,11 +301,6 @@ function sanitizeOrderId(value) {
     .toUpperCase()
     .replace(/\s+/g, "");
   return /^[A-Z0-9-]{10,32}$/.test(orderId) ? orderId : "";
-}
-
-function sanitizeMarketplace(value) {
-  const normalized = String(value || "").trim();
-  return ["Amazon US", "Amazon UK"].includes(normalized) ? normalized : "";
 }
 
 function enqueueDataTask(task) {
@@ -386,21 +365,17 @@ async function sendAdminNotification(record) {
     subject: `New Warranty Registration - ${record.amazonOrderId}`,
     text: [
       "New KATBUU warranty registration",
-      `Name: ${record.fullName}`,
       `Email: ${record.email}`,
-      `Phone: ${record.phoneNumber || "Not provided"}`,
       `Amazon Order ID: ${record.amazonOrderId}`,
-      `Marketplace: ${record.marketplace}`,
+      "Form: simplified 2-field registration",
       `Registered At: ${record.registeredAt}`
     ].join("\n"),
     html: `
       <div style="font-family: Arial, sans-serif; color: #222; line-height: 1.6;">
         <h2 style="margin-bottom: 12px;">New KATBUU warranty registration</h2>
-        <p><strong>Name:</strong> ${escapeHtml(record.fullName)}</p>
         <p><strong>Email:</strong> ${escapeHtml(record.email)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(record.phoneNumber || "Not provided")}</p>
         <p><strong>Amazon Order ID:</strong> ${escapeHtml(record.amazonOrderId)}</p>
-        <p><strong>Marketplace:</strong> ${escapeHtml(record.marketplace)}</p>
+        <p><strong>Form:</strong> Simplified 2-field registration</p>
         <p><strong>Registered At:</strong> ${escapeHtml(record.registeredAt)}</p>
       </div>
     `

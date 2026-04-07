@@ -11,11 +11,8 @@
 
       const formData = new FormData(form);
       const payload = {
-        fullName: String(formData.get("fullName") || ""),
         email: String(formData.get("email") || ""),
-        phoneNumber: String(formData.get("phoneNumber") || ""),
         amazonOrderId: String(formData.get("amazonOrderId") || ""),
-        marketplace: String(formData.get("marketplace") || ""),
         acceptTerms: formData.get("acceptTerms") === "on",
         acceptPrivacy: formData.get("acceptPrivacy") === "on",
         website: String(formData.get("website") || "")
@@ -40,8 +37,7 @@
           "katbuu-warranty",
           JSON.stringify({
             email: payload.email,
-            orderId: payload.amazonOrderId,
-            marketplace: payload.marketplace
+            orderId: payload.amazonOrderId
           })
         );
 
@@ -58,19 +54,16 @@
 
   const successEmail = document.querySelector("[data-success-email]");
   const successOrderId = document.querySelector("[data-success-order-id]");
-  const successMarketplace = document.querySelector("[data-success-marketplace]");
   const duplicateNote = document.querySelector("[data-duplicate-note]");
 
-  if (successEmail || successOrderId || successMarketplace || duplicateNote) {
+  if (successEmail || successOrderId || duplicateNote) {
     try {
       const stored = JSON.parse(sessionStorage.getItem("katbuu-warranty") || "{}");
       if (successEmail) successEmail.textContent = stored.email || "your email address";
       if (successOrderId) successOrderId.textContent = stored.orderId || "your Amazon order ID";
-      if (successMarketplace) successMarketplace.textContent = stored.marketplace || "your selected marketplace";
     } catch {
       if (successEmail) successEmail.textContent = "your email address";
       if (successOrderId) successOrderId.textContent = "your Amazon order ID";
-      if (successMarketplace) successMarketplace.textContent = "your selected marketplace";
     }
 
     if (duplicateNote) {
