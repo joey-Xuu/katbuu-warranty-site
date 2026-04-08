@@ -49,6 +49,11 @@
 
             <form class="form-grid" data-registration-form novalidate>
               <div class="field">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" type="text" maxlength="80" required>
+              </div>
+
+              <div class="field">
                 <label for="email">Email Address</label>
                 <input id="email" name="email" type="email" maxlength="120" required>
               </div>
@@ -82,13 +87,15 @@
                 </div>
               </div>
 
-              <p class="micro-note">For Amazon US and Amazon UK orders. No review is required.</p>
-
               <div class="button-row single-action">
                 <button class="primary-button" data-submit-button type="submit">
                   Activate Warranty
                 </button>
               </div>
+
+              <p class="service-site-note">
+                After-sales website: <a href="https://www.katbuu.com">www.katbuu.com</a>
+              </p>
 
               <p class="form-status" data-form-status aria-live="polite"></p>
             </form>

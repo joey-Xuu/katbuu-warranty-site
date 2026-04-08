@@ -259,15 +259,19 @@ a { color: inherit; }
 .checkbox-list { display: grid; gap: 0.7rem; }
 .checkbox-row { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.94rem; line-height: 1.6; }
 .checkbox-row input { margin-top: 0.3rem; }
-.micro-note {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: rgba(42, 29, 21, 0.74);
-}
 .button-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .single-action .primary-button {
   min-width: 15rem;
+}
+.service-site-note {
+  margin: -0.2rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(42, 29, 21, 0.76);
+}
+.service-site-note a {
+  font-weight: 700;
+  text-decoration: none;
 }
 .primary-button,
 .secondary-button {

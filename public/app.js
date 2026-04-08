@@ -11,6 +11,7 @@
 
       const formData = new FormData(form);
       const payload = {
+        fullName: String(formData.get("fullName") || ""),
         email: String(formData.get("email") || ""),
         amazonOrderId: String(formData.get("amazonOrderId") || ""),
         acceptTerms: formData.get("acceptTerms") === "on",
