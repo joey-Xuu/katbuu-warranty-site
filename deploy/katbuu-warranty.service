@@ -1,0 +1,24 @@
+[Unit]
+Description=KATBUU Warranty Registration Site
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/katbuu-warranty
+EnvironmentFile=/etc/katbuu-warranty/warranty.env
+ExecStart=/usr/bin/node /opt/katbuu-warranty/server.js
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+ReadWritePaths=/var/lib/katbuu-warranty
+
+[Install]
+WantedBy=multi-user.target

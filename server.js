@@ -16,7 +16,7 @@ const REPLY_TO_EMAIL = process.env.REPLY_TO_EMAIL || SUPPORT_EMAIL;
 const APP_USER_AGENT = "katbuu-warranty-site/1.0";
 
 const PUBLIC_DIR = path.join(__dirname, "public");
-const DATA_DIR = path.join(__dirname, "data");
+const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, "data");
 const REGISTRATIONS_FILE = path.join(DATA_DIR, "registrations.json");
 
 const CONTENT_TYPES = {
