@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the KATBUU warranty registration backup daily
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=15m
+
+[Install]
+WantedBy=timers.target
