@@ -1,0 +1,7 @@
+tunnel: 75f7c504-b8f2-404e-9236-a4c330ec9a67
+credentials-file: /home/ubuntu/.cloudflared/75f7c504-b8f2-404e-9236-a4c330ec9a67.json
+
+ingress:
+  - hostname: www.katbuu.com
+    service: http://127.0.0.1:8080
+  - service: http_status:404
